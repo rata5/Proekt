@@ -5,8 +5,6 @@
         public int Id { get; set; }
         public string ServiceType { get; set; }
         public DateTime Date { get; set; }
-        public string Garage { get; set; }
-        public string Car { get; set; }
        
         /// <summary>
         /// razdelenie za vunshni kluchove

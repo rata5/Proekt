@@ -1,6 +1,6 @@
-﻿namespace Proekt.Data.Entities
+﻿namespace Proekt.Dto
 {
-    public class Cars
+    public class CarsDto
     {
         public int Id { get; set; }
         public string Make { get; set; }
@@ -8,12 +8,6 @@
         public int ProductionYear { get; set; }
         public string LicensePlate { get; set; }
 
-        /// <summary>
-        /// razdelenie za vunshni kluchove
-        /// </summary>
-        
         public int GarageId { get; set; }
-        public Garages Garages { get; set; }
-
     }
 }
