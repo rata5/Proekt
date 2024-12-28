@@ -6,14 +6,14 @@ namespace Proekt.Services
 {
     public class CarServise:ICarServise
     {
-        private readonly ICarsRepository _carsRepository;
+        private readonly ICarsRepository _carsServices;
         public CarServise(ICarsRepository carsRepository)
         {
-            _carsRepository = carsRepository;
+            _carsServices = carsRepository;
         }
         public IEnumerable<CarsDto> GetAllCars()
         {
-            var cars = _carsRepository.GetAllCars();
+            var cars = _carsServices.GetAllCars();
             return cars.Select(car => new CarsDto
             {
                 Id = car.Id,
@@ -30,7 +30,7 @@ namespace Proekt.Services
         }
         public CarsDto GetCarById(int id)
         {
-            var car = _carsRepository.GetCarById(id);
+            var car = _carsServices.GetCarById(id);
             if (car == null)
             {
                 return null;
@@ -63,23 +63,23 @@ namespace Proekt.Services
                 LicensePlate = carsDto.LicensePlate,
                 GarageId = carsDto.GarageId
             };
-            _carsRepository.AddCar(car);
+            _carsServices.AddCar(car);
         }
         public void UpdateCar(CarsDto carsDto)
         {
-            var car = _carsRepository.GetCarById(carsDto.Id);
+            var car = _carsServices.GetCarById(carsDto.Id);
             if (carsDto != null)
             {
                 carsDto.Make = car.Make;
                 carsDto.Model = car.Model;
                 carsDto.LicensePlate = car.LicensePlate;
                 carsDto.ProductionYear = car.ProductionYear;
-                _carsRepository.UpdateCar(car);
+                _carsServices.UpdateCar(car);
             }
         }
         public void DeleteCar(int id)
         {
-            _carsRepository.DeleteCar(id);
+            _carsServices.DeleteCar(id);
         }
     }
 }
