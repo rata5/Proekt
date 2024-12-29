@@ -10,5 +10,6 @@ namespace Proekt.Services.Interfaces
         void AddGarage(GaragesDto garage);
         void UpdateGarage(GaragesDto garage);
         void DeleteGarage(int id);
+
     }
 }

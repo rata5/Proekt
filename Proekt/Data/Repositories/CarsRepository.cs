@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Proekt.Controllers;
 using Proekt.Data.Entities;
-using Proekt.Data.Entities;
 using Proekt.Data.Repositories.Interfaces;
 
 namespace Proekt.Data.Repositories

@@ -1,19 +1,22 @@
 ﻿using Proekt.Data.Entities;
 using Proekt.Data.Repositories.Interfaces;
+using Proekt.Services.Interfaces;
 using Proekt.Dto;
+
 
 namespace Proekt.Services
 {
-    public class CarServise:ICarServise
+    public class CarService : ICarService
     {
-        private readonly ICarsRepository _carsServices;
-        public CarServise(ICarsRepository carsRepository)
+        private readonly ICarsRepository _carsRepository;
+        public CarService(ICarsRepository carsRepository)
         {
-            _carsServices = carsRepository;
+            _carsRepository = carsRepository;
         }
+
         public IEnumerable<CarsDto> GetAllCars()
         {
-            var cars = _carsServices.GetAllCars();
+            var cars = _carsRepository.GetAllCars();
             return cars.Select(car => new CarsDto
             {
                 Id = car.Id,
@@ -21,16 +24,12 @@ namespace Proekt.Services
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                GarageId = car.GarageId.Select(g => new GaragesDto
-                {
-                    Id = g.Id,
-                    Name = g.Name
-                }).ToList()
+                GarageId = car.GarageId
             });
         }
         public CarsDto GetCarById(int id)
         {
-            var car = _carsServices.GetCarById(id);
+            var car = _carsRepository.GetCarById(id);
             if (car == null)
             {
                 return null;
@@ -42,14 +41,7 @@ namespace Proekt.Services
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                GarageId = car.GarageId.Select(g => new GaragesDto
-                {
-                    Id = g.Id,
-                    Name = g.Name
-                    Location = g.Location,
-                    City = g.City,
-                    Capacity = g.Capacity
-                }).ToList()
+                GarageId = car.GarageId
             };
         }
         public void AddCar(CarsDto carsDto)
@@ -63,23 +55,23 @@ namespace Proekt.Services
                 LicensePlate = carsDto.LicensePlate,
                 GarageId = carsDto.GarageId
             };
-            _carsServices.AddCar(car);
+            _carsRepository.AddCar(car);
         }
         public void UpdateCar(CarsDto carsDto)
         {
-            var car = _carsServices.GetCarById(carsDto.Id);
+            var car = _carsRepository.GetCarById(carsDto.Id);
             if (carsDto != null)
             {
                 carsDto.Make = car.Make;
                 carsDto.Model = car.Model;
                 carsDto.LicensePlate = car.LicensePlate;
                 carsDto.ProductionYear = car.ProductionYear;
-                _carsServices.UpdateCar(car);
+                _carsRepository.UpdateCar(car);
             }
         }
         public void DeleteCar(int id)
         {
-            _carsServices.DeleteCar(id);
+            _carsRepository.DeleteCar(id);
         }
     }
 }

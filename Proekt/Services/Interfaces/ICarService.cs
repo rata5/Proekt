@@ -3,7 +3,7 @@ using Proekt.Dto;
 
 namespace Proekt.Services.Interfaces
 {
-    public interface ICarServise
+    public interface ICarService
     {
         IEnumerable<CarsDto> GetAllCars();
         CarsDto GetCarById(int Id);

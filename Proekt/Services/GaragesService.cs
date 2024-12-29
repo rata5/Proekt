@@ -1,68 +1,72 @@
 ﻿using Proekt.Data.Entities;
 using Proekt.Data.Repositories.Interfaces;
-using Proekt.Dto;
 using Proekt.Services.Interfaces;
+using Proekt.Dto;
 
 namespace Proekt.Services
 {
-    public class GaragesService
+    public class GaragesService : IGaragesService
     {
-        private readonly IGaragesRepository _garagesService;
-        public GaragesService(IGaragesRepository garagesService)
+        private readonly IGaragesRepository _garageRepository;
+        public GaragesService(IGaragesRepository garagesRepository)
         {
-            _garagesService = garagesService;
+            _garageRepository = garagesRepository;
         }
         public IEnumerable<GaragesDto> GetAllGarages()
         {
-            var garages = _garagesService.GetAllGarages();
-            return garages.Select(garages = new GaragesDto
+            var garages = _garageRepository.GetAllGarages();
+            return garages.Select(g => new GaragesDto
             {
-                Id = garages.Id,
-                Name = garages.Name,
-                Location = garages.Location,
-                City = garages.City,
-                Capacity = garages.Capacity
-            }).ToList();
+                Id = g.Id,
+                Name = g.Name,
+                City = g.City,
+                Location = g.Location,
+                Capacity = g.Capacity
+            });
         }
-        public GetGarageById(int id)
+        public GaragesDto GetGarageById(int id)
         {
-            var garage = _garagesService.GetGarageById(id);
-            if (garage != null)
+            var garage = _garageRepository.GetGarageById(id);
+            if (garage == null)
+            {
+                return null;
+            }
+            return new GaragesDto
             {
                 Id = garage.Id,
                 Name = garage.Name,
-                Location = garage.Location,
                 City = garage.City,
+                Location = garage.Location,
                 Capacity = garage.Capacity
-            }
+            };
         }
         public void AddGarage(GaragesDto garageDto)
         {
-            var garage = new Cars
+            var garage = new Garages
             {
                 Id = garageDto.Id,
                 Name = garageDto.Name,
-                Location = garageDto.Location,
                 City = garageDto.City,
+                Location = garageDto.Location,
                 Capacity = garageDto.Capacity
             };
-            _garagesService.AddGarage(garage);
+            _garageRepository.AddGarage(garage);
         }
-        public void UpdateGarage(GaragesDto garageDto)
+        public void UpdateGarage(GaragesDto garagesDto)
         {
-            var garage = _garagesService.GetGarageById(garageDto.Id);
-            if (garage != null) 
+            var garage = _garageRepository.GetGarageById(garagesDto.Id);
+            if (garagesDto != null)
             {
-                garageDto.Name = garage.Name;
-                garageDto.Location = garage.Location;
-                garageDto.City = garage.City;
-                garageDto.Capacity = garageDto.Capacity;
-                _garagesService.UpdateGarage(garage);
+                garagesDto.Name = garage.Name;
+                garagesDto.City = garage.City;
+                garagesDto.Capacity = garage.Capacity;
+                garagesDto.Location = garage.Location;
+                _garageRepository.UpdateGarage(garage);
             }
         }
         public void DeleteGarage(int id)
         {
-            _garagesService.DeleteGarage(id);
+            _garageRepository.DeleteGarage(id);
         }
     }
 }

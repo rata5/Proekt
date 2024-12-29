@@ -6,16 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\index.html" />
-    <None Include="wwwroot\static\css\main.555bbca7.css" />
-    <None Include="wwwroot\static\css\main.555bbca7.css.map" />
-    <None Include="wwwroot\static\js\main.3e2852bc.js" />
-    <None Include="wwwroot\static\js\main.3e2852bc.js.LICENSE.txt" />
-    <None Include="wwwroot\static\js\main.3e2852bc.js.map" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="wwwroot\index.html" />
+		<None Include="wwwroot\static\css\main.555bbca7.css" />
+		<None Include="wwwroot\static\css\main.555bbca7.css.map" />
+		<None Include="wwwroot\static\js\main.3e2852bc.js" />
+		<None Include="wwwroot\static\js\main.3e2852bc.js.LICENSE.txt" />
+		<None Include="wwwroot\static\js\main.3e2852bc.js.map" />
+	</ItemGroup>
 
-  <ItemGroup>
+
+
+	<ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
