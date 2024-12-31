@@ -1,4 +1,4 @@
-@Proekt_HostAddress = http://127.0.0.1:8088
+@Proekt_HostAddress = http://127.0.0.1:8000
 
 GET {{Proekt_HostAddress}}/weatherforecast/
 Accept: application/json

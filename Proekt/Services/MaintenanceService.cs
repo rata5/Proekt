@@ -23,11 +23,11 @@ namespace Proekt.Services
                 Id = maintenances.Id,
                 ServiceType = maintenances.ServiceType,
                 Date = maintenances.Date,
-                Garage = maintenances.Garages.Select(g => new GaragesDto
+                Garages = maintenances.Garages.Select(g => new GaragesDto
                 {
                     Id = g.Id
                 }).ToList(),
-                Car = maintenances.Cars.Select(c => new CarsDto
+                Cars = maintenances.Cars.Select(c => new CarsDto
                 {
                     Id = c.Id,
                 }).ToList()
@@ -46,11 +46,11 @@ namespace Proekt.Services
                 Id = maintenance.Id,
                 ServiceType = maintenance.ServiceType,
                 Date = maintenance.Date,
-                Garage = maintenance.Garages.Select(g => new GaragesDto
+                Garages = maintenance.Garages.Select(g => new GaragesDto
                 {
                     Id = g.Id
                 }).ToList(),
-                Car = maintenance.Cars.Select(c => new CarsDto
+                Cars = maintenance.Cars.Select(c => new CarsDto
                 {
                     Id = c.Id
                 }).ToList()
@@ -82,31 +82,6 @@ namespace Proekt.Services
         public void DeleteMaintenance(int id)
         {
             _maintenanceRepository.DeleteMaintenance(id);
-        }
-
-        IEnumerable<MaintenanceDto> IMaintenanceService.GetAllGarages()
-        {
-            throw new NotImplementedException();
-        }
-
-        MaintenanceDto IMaintenanceService.GetGarageById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaintenanceService.AddGarage(MaintenanceDto garage)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaintenanceService.UpdateGarage(MaintenanceDto garage)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IMaintenanceService.DeleteGarage(int id)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -9,7 +9,7 @@ namespace Proekt.Dto
         public string Model { get; set; }
         public int ProductionYear { get; set; }
         public string LicensePlate { get; set; }
-
-        public List<GaragesDto> Garage { get; set; } = new List<GaragesDto>();
+        public int GarageId { get; set; }
+        public List<GaragesDto> Garages { get; set; } = new List<GaragesDto>();
     }
 }

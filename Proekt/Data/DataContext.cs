@@ -4,10 +4,8 @@ using Proekt.Data.Entities;
 
 namespace Proekt.Data
 {
-    public class DataContext : DbContext
+    public class DataContext(DbContextOptions<DataContext> options) : DbContext(options)
     {
-        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
-
         public DbSet<Cars> Cars { get; set; }
         public DbSet<Garages> Garages { get; set; }
         public DbSet<Maintenance> Maintenances { get; set; }

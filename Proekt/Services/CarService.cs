@@ -24,7 +24,7 @@ namespace Proekt.Services
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                Garage = car.Garages.Select(g => new GaragesDto
+                Garages = car.Garages.Select(g => new GaragesDto
                 {
                     Id = g.Id
                 }).ToList()
@@ -44,7 +44,7 @@ namespace Proekt.Services
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                Garage = car.Garages.Select(g => new GaragesDto
+                Garages = car.Garages.Select(g => new GaragesDto
                 {
                     Id = g.Id
                 }).ToList()

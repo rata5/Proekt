@@ -17,7 +17,7 @@ namespace Proekt.Data.Repositories
         }
         public Maintenance GetMaintenanceById(int id)
         {
-            return _dataContext.Maintenances.Include(m => m.Cars).Include(m => m.Garages).FirstOrDefault(m=>m.Id == id);
+            return _dataContext.Maintenances.Include(m => m.Cars).Include(m => m.Garages).FirstOrDefault(m => m.Id == id);
         }
         public IEnumerable<Maintenance> GetMaintenanceByCarId(int carId)
         {
