@@ -21,7 +21,7 @@ namespace Proekt.Data.Repositories
         }
         public IEnumerable<Maintenance> GetMaintenanceByCarId(int carId)
         {
-            return _dataContext.Maintenances.Where(m=>m.CarId == carId).Include(m=>m.Garages).ToList();
+            return _dataContext.Maintenances.Where(m => m.CarId == carId).Include(m => m.Garages).ToList();
         }
         public void AddMaintenance(Maintenance maintenance)
         {

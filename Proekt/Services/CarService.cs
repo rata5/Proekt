@@ -24,7 +24,10 @@ namespace Proekt.Services
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                GarageId = car.GarageId
+                Garage = car.Garages.Select(g => new GaragesDto
+                {
+                    Id = g.Id
+                }).ToList()
             });
         }
         public CarsDto GetCarById(int id)
@@ -41,7 +44,10 @@ namespace Proekt.Services
                 Model = car.Model,
                 ProductionYear = car.ProductionYear,
                 LicensePlate = car.LicensePlate,
-                GarageId = car.GarageId
+                Garage = car.Garages.Select(g => new GaragesDto
+                {
+                    Id = g.Id
+                }).ToList()
             };
         }
         public void AddCar(CarsDto carsDto)
@@ -52,8 +58,7 @@ namespace Proekt.Services
                 Make = carsDto.Make,
                 Model = carsDto.Model,
                 ProductionYear = carsDto.ProductionYear,
-                LicensePlate = carsDto.LicensePlate,
-                GarageId = carsDto.GarageId
+                LicensePlate = carsDto.LicensePlate
             };
             _carsRepository.AddCar(car);
         }

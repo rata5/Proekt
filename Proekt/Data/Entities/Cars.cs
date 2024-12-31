@@ -7,13 +7,9 @@
         public string Model { get; set; }
         public int ProductionYear { get; set; }
         public string LicensePlate { get; set; }
-
-        /// <summary>
-        /// razdelenie za vunshni kluchove
-        /// </summary>
-        
         public int GarageId { get; set; }
-        public Garages Garages { get; set; }
+        
+        public List<Garages>? Garages { get; set; }
 
     }
 }

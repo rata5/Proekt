@@ -40,6 +40,23 @@ namespace Proekt.Services
                 Capacity = garage.Capacity
             };
         }
+        public GaragesDto GetGarageByCity(string city)
+        {
+            var garage = _garageRepository.GetAllGarages();
+            var filteredGarage = garage.FirstOrDefault(g => string.Equals(g.City, city, StringComparison.OrdinalIgnoreCase));
+            if (filteredGarage == null)
+            {
+                return null;
+            }
+            return new GaragesDto
+            {
+                Id = filteredGarage.Id,
+                Name = filteredGarage.Name,
+                City = filteredGarage.City,
+                Location = filteredGarage.Location,
+                Capacity = filteredGarage.Capacity
+            };
+        }
         public void AddGarage(GaragesDto garageDto)
         {
             var garage = new Garages

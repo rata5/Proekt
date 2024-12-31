@@ -1,4 +1,6 @@
-﻿namespace Proekt.Data.Dto
+﻿using Proekt.Dto;
+
+namespace Proekt.Data.Dto
 {
     public class MaintenanceDto
     {
@@ -6,7 +8,7 @@
         public string ServiceType { get; set; }
         public DateTime Date { get; set; }
 
-        public int GarageId { get; set; }
-        public int CarId { get; set; }
+        public List<GaragesDto> Garage { get; set; } = new List<GaragesDto>();
+        public List<CarsDto> Car { get; set; } = new List<CarsDto>();
     }
 }

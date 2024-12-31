@@ -16,7 +16,7 @@ namespace Proekt.Data
             modelBuilder.Entity<Cars>()
                 .HasOne(c => c.Garages)
                 .WithMany()
-                .HasForeignKey(c => c.GarageId)
+                .HasForeignKey(g => g.GarageId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Maintenance>()

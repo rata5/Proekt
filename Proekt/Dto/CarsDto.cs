@@ -1,4 +1,6 @@
-﻿namespace Proekt.Dto
+﻿using Proekt.Data.Entities;
+
+namespace Proekt.Dto
 {
     public class CarsDto
     {
@@ -8,6 +10,6 @@
         public int ProductionYear { get; set; }
         public string LicensePlate { get; set; }
 
-        public int GarageId { get; set; }
+        public List<GaragesDto> Garage { get; set; } = new List<GaragesDto>();
     }
 }

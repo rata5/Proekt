@@ -5,14 +5,9 @@
         public int Id { get; set; }
         public string ServiceType { get; set; }
         public DateTime Date { get; set; }
-       
-        /// <summary>
-        /// razdelenie za vunshni kluchove
-        /// </summary>
-      
         public int GarageId { get; set; }
-        public Garages Garages { get; set; }
+        public List<Garages> Garages { get; set; }
         public int CarId { get; set; }
-        public Cars Cars { get; set; }
+        public List<Cars> Cars { get; set; }
     }
 }
